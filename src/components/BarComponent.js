@@ -16,18 +16,27 @@ const BarComponent = () => {
       fontSize: "25px",
     },
     search: {
-        fontFamily: "Chewy",
-        width: "100%",
-        height: "40px",
-        borderRadius: "20px",
-        padding: "0 15px",
-        border: "none",
-    }
+      fontFamily: "Chewy",
+      width: "100%",
+      height: "40px",
+      borderRadius: "20px",
+      padding: "0 15px",
+      border: "none",
+    },
   };
+
+  const onChangeSearch = (event) => {
+    console.log(event.target.value)
+  }
 
   return (
     <div className="bar-component" style={style.container}>
-      <input style={style.search} type="text" placeholder="Search a ToDo..."></input>
+      <input
+        style={style.search}
+        type="text"
+        placeholder="Search a ToDo..."
+        onChange={onChangeSearch}
+      ></input>
     </div>
   );
 };

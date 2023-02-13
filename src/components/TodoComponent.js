@@ -53,12 +53,21 @@ const TodoComponent = (props) => {
       fontSize: "20px",
     }
   };
+  
+  const onComplete = () => {
+    console.log("You have completed: " + props.todo.text)
+  }
+
+  const onDelete = () => {
+    console.log("You have deleted: " + props.todo.text)
+  }
 
   return (
     <div className="todo-component">
       <li style={style.container}>
         <button
           style={props.todo.isChecked ? style.activeStyles : style.inactiveStyles}
+          onClick={onComplete}
         >
           ✓
         </button>
@@ -67,6 +76,7 @@ const TodoComponent = (props) => {
           style={isHovered ? style.hoverStyles : style.invectiveDelete}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          onClick={onDelete}
         >
           x
         </button>

@@ -15,9 +15,12 @@ const ButtonComponent = (props) => {
         background: props.color
     }
 
+    const onClickButton = () => {
+        alert("Modal Opening")
+    }
     return(
         <div className='button-component'>
-            <button style={style}>{props.text}</button>
+            <button onClick={ onClickButton } style={style}>{props.text}</button>
         </div> 
     );
 }

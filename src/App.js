@@ -1,5 +1,6 @@
 import React from "react";
 import { HeaderComponent } from "./components/HeaderComponent";
+import { ProgressComponent } from "./components/ProgressComponent";
 import { BarComponent } from "./components/BarComponent";
 import { ListComponent } from "./components/ListComponent";
 import { TodoComponent } from "./components/TodoComponent";
@@ -8,6 +9,8 @@ import "./App.css";
 const todosArray = [
   { text: "First Todo", isChecked: false},
   { text: "Second Todo", isChecked: true},
+  { text: "Third Todo", isChecked: false},
+  { text: "Fourth Todo", isChecked: false},
 ];
 const style = {
   app: {
@@ -31,7 +34,9 @@ const style = {
 function App() {
   return (
     <div style={style.app}>
-      <HeaderComponent />
+      <HeaderComponent>
+        <ProgressComponent />
+      </HeaderComponent>
       <BarComponent />
       <ListComponent >
         { todosArray.length > 0 ?

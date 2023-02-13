@@ -7,7 +7,7 @@ const style= {
   justifyContent: "center",
 }
 
-const ProgressComponent = () => {
+const ProgressComponent = (props) => {
   const [percentage, setPercentage] = useState(72);
   return (
     <div style={style} className="progress-component">
