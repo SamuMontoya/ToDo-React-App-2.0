@@ -7,8 +7,8 @@ const CircleProgress = (props) => {
 
   const style = {
     background: {
-      fill: "none",
-      stroke: "#ddd",
+      fill: "#F3F3F3",
+      stroke: "#E46471",
     },
     progress: {
       fill: "none",
@@ -16,8 +16,9 @@ const CircleProgress = (props) => {
       strokeLinejoin: "round",
     },
     text: {
-      fontSize: "3rem",
+      fontSize: "40px",
       fontWeight: "bold",
+      fontFamily: "Chewy",
     },
   };
 
@@ -30,9 +31,9 @@ const CircleProgress = (props) => {
       >
         <defs>
           <linearGradient id="gradient">
-            <stop offset="10%" stopColor="#6EB035" />
-            <stop offset="50%" stopColor="#74C12D" />
-            <stop offset="100%" stopColor="#8FDD53" />
+            <stop offset="10%" stopColor="#309398" />
+            <stop offset="50%" stopColor="#49B1B6" />
+            <stop offset="100%" stopColor="#71D1D6" />
           </linearGradient>
         </defs>
         <circle
@@ -57,10 +58,10 @@ const CircleProgress = (props) => {
           })`}
           stroke="url(#gradient)"
         />
-        <text x="50%" y="60%" dy="0.3em" textAnchor="middle" style={style.text} fill="url(#gradient)">
+        <text x="50%" y="35%" dy="0.3em" textAnchor="middle" style={style.text} fill="#0D253F">✓</text>
+        <text x="50%" y="60%" dy="0.3em" textAnchor="middle" style={style.text} fill="#0D253F">
           {props.percentage}/99
         </text>
-        <text x="50%" y="35%" dy="0.3em" textAnchor="middle" style={style.text} >✅</text>
       </svg>
     </div>
   );
