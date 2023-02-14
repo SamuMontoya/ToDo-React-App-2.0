@@ -7,7 +7,7 @@ const style = {
         padding: "25px",
         marginTop: "20px",
         borderRadius: "25px 25px 0 0",
-        minHeight: "286px"
+        minHeight: "40vh"
     },
     headList: {
         textAlign: "center",

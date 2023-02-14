@@ -1,10 +1,6 @@
 import React from "react";
 
 const CircleProgress = (props) => {
-  const radius = 85;
-  const dashArray = radius * Math.PI * 2;
-  const dashOffset = dashArray - (dashArray * props.percentage) / 100;
-
   const style = {
     background: {
       fill: "#F3F3F3",
@@ -21,6 +17,10 @@ const CircleProgress = (props) => {
       fontFamily: "Chewy",
     },
   };
+  
+  const radius = 85;
+  const dashArray = radius * Math.PI * 2;
+  const dashOffset = dashArray - (dashArray * props.completedTodos) / props.totalTodos;
 
   return (
     <div className="circle-progress">
@@ -60,7 +60,7 @@ const CircleProgress = (props) => {
         />
         <text x="50%" y="35%" dy="0.3em" textAnchor="middle" style={style.text} fill="#0D253F">✓</text>
         <text x="50%" y="60%" dy="0.3em" textAnchor="middle" style={style.text} fill="#0D253F">
-          {props.percentage}/99
+          {props.completedTodos}/{props.totalTodos}
         </text>
       </svg>
     </div>

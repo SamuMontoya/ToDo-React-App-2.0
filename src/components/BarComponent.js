@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonComponent } from "./ButtonComponent";
 
-const BarComponent = () => {
+const BarComponent = ({ searchValue, setSearchValue }) => {
   const style = {
     container: {
       display: "flex",
@@ -26,7 +26,7 @@ const BarComponent = () => {
   };
 
   const onChangeSearch = (event) => {
-    console.log(event.target.value)
+    setSearchValue(event.target.value)
   }
 
   return (
@@ -34,6 +34,7 @@ const BarComponent = () => {
       <input
         style={style.search}
         type="text"
+        value={searchValue}
         placeholder="Search a ToDo..."
         onChange={onChangeSearch}
       ></input>

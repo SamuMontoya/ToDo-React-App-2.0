@@ -8,11 +8,11 @@ const style= {
 }
 
 const ProgressComponent = (props) => {
-  const [percentage, setPercentage] = useState(72);
   return (
     <div style={style} className="progress-component">
       <CircleProgress
-        percentage={percentage}
+        completedTodos={ props.completedTodos }
+        totalTodos ={ props.totalTodos }
         circleWidth="200"
       />
     </div>
