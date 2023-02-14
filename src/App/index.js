@@ -1,9 +1,9 @@
 import React from "react";
-import { HeaderComponent } from "./components/HeaderComponent";
-import { ProgressComponent } from "./components/ProgressComponent";
-import { BarComponent } from "./components/BarComponent";
-import { ListComponent } from "./components/ListComponent";
-import { TodoComponent } from "./components/TodoComponent";
+import { HeaderComponent } from "../components/HeaderComponent";
+import { ProgressComponent } from "../components/ProgressComponent";
+import { BarComponent } from "../components/BarComponent";
+import { ListComponent } from "../components/ListComponent";
+import { TodoComponent } from "../components/TodoComponent";
 import "./App.css";
 
 function App() {

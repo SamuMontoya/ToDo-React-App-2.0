@@ -1,21 +1,10 @@
 import { React, useState } from "react";
+import './TodoComponent.css'
 
 const TodoComponent = (props) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const style = {
-    container: {
-      background: "#FFF9EB",
-      listStyleType: "none",
-      borderRadius: "25px",
-      padding: "15px",
-      color: "#0D253F",
-      fontFamily: "Chewy",
-      fontSize: "20px",
-      marginTop: "15px",
-      display: "flex",
-      justifyContent: "space-around",
-    },
+  const reactiveStyles = {
     hoverStyles: {
       background: "#e46471",
       color: "#fff9eb",
@@ -54,24 +43,19 @@ const TodoComponent = (props) => {
       fontFamily: "Chewy",
       fontSize: "20px",
     }
-  };
-
-  const onDelete = () => {
-    console.log("You have deleted: " + props.todo.text)
   }
 
   return (
-    <div className="todo-component">
-      <li style={style.container}>
+      <li className="todo-component">
         <button
-          style={props.todo.isChecked ? style.activeStyles : style.inactiveStyles}
+          style={props.todo.isChecked ? reactiveStyles.activeStyles : reactiveStyles.inactiveStyles}
           onClick={props.onToogleTodo}
         >
           ✓
         </button>
         <span style={props.todo.isChecked ? {textDecoration: "line-through"} : {textDecoration: "none"}}>{props.todo.text}</span>
         <button
-          style={isHovered ? style.hoverStyles : style.invectiveDelete}
+          style={isHovered ? reactiveStyles.hoverStyles : reactiveStyles.invectiveDelete}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onClick={props.onDeleteTodo}
@@ -79,7 +63,6 @@ const TodoComponent = (props) => {
           x
         </button>
       </li>
-    </div>
   );
 };
 

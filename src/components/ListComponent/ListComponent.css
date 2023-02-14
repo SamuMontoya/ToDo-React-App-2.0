@@ -1,0 +1,15 @@
+.list-component {
+  background: #309398;
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 25px 25px 0 0;
+  min-height: 40vh;
+}
+.headList {
+  text-align: center;
+  font-family: Chewy;
+  color: #f3f3f3;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-around;
+}

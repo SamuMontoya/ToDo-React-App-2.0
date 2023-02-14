@@ -1,15 +1,10 @@
-import { React, useState } from "react";
+import React from "react";
 import { CircleProgress } from "./CircleProgress";
-
-const style= {
-  display: "flex",
-  width: "100%",
-  justifyContent: "center",
-}
+import './ProgressComponent.css'
 
 const ProgressComponent = (props) => {
   return (
-    <div style={style} className="progress-component">
+    <div className="progress-component">
       <CircleProgress
         completedTodos={ props.completedTodos }
         totalTodos ={ props.totalTodos }
