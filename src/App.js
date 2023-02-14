@@ -47,6 +47,20 @@ function App() {
       return todoText.includes(searchText)
     })
   }
+
+  const toogleTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text)
+    const newTodos = [...todos]
+    newTodos[todoIndex].isChecked = !newTodos[todoIndex].isChecked
+    setTodos(newTodos)
+  }
+
+  const deleteTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text)
+    const newTodos = [...todos]
+    newTodos.splice(todoIndex, 1)
+    setTodos(newTodos)
+  }
   
   return (
     <div style={style.app}>
@@ -56,7 +70,14 @@ function App() {
       <BarComponent searchValue={searchValue} setSearchValue={setSearchValue} />
       <ListComponent>
         {searchedTodos.length > 0 ? (
-          searchedTodos.map((todo) => <TodoComponent todo={todo} key={todo.text} />)
+          searchedTodos.map((todo) => (
+            <TodoComponent 
+              todo={todo} 
+              key={todo.text} 
+              onToogleTodo={() => toogleTodo(todo.text)}
+              onDeleteTodo={() => deleteTodo(todo.text)}
+            />
+          ))
         ) : (
           <p style={style.empty}>No items to display</p>
         )}

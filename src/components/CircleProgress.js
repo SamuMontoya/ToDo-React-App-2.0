@@ -20,7 +20,11 @@ const CircleProgress = (props) => {
   
   const radius = 85;
   const dashArray = radius * Math.PI * 2;
-  const dashOffset = dashArray - (dashArray * props.completedTodos) / props.totalTodos;
+  let dashOffset = 0
+  if (props.totalTodos > 0){
+    dashOffset = dashArray - (dashArray * props.completedTodos) / props.totalTodos;
+  }
+  
 
   return (
     <div className="circle-progress">

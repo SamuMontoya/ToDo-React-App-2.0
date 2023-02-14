@@ -37,6 +37,7 @@ const TodoComponent = (props) => {
       border: "none",
       fontFamily: "Chewy",
       fontSize: "20px",
+      fontWeight: "1000",
     },
     inactiveStyles: {
       color: "#abe188",
@@ -44,6 +45,7 @@ const TodoComponent = (props) => {
       background: "none",
       fontFamily: "Chewy",
       fontSize: "20px",
+      fontWeight: "1000",
     },
     invectiveDelete: {
       color: "#e46471",
@@ -53,10 +55,6 @@ const TodoComponent = (props) => {
       fontSize: "20px",
     }
   };
-  
-  const onComplete = () => {
-    console.log("You have completed: " + props.todo.text)
-  }
 
   const onDelete = () => {
     console.log("You have deleted: " + props.todo.text)
@@ -67,7 +65,7 @@ const TodoComponent = (props) => {
       <li style={style.container}>
         <button
           style={props.todo.isChecked ? style.activeStyles : style.inactiveStyles}
-          onClick={onComplete}
+          onClick={props.onToogleTodo}
         >
           ✓
         </button>
@@ -76,7 +74,7 @@ const TodoComponent = (props) => {
           style={isHovered ? style.hoverStyles : style.invectiveDelete}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          onClick={onDelete}
+          onClick={props.onDeleteTodo}
         >
           x
         </button>
