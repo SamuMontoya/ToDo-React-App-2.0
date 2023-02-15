@@ -7,7 +7,7 @@ const ListComponent = (props) => {
     <div className="list-component">
       <div className="headList">
         <h2 className="title">List ToDo's</h2>
-        <ButtonComponent color="#e46471" text="Create" />
+        <ButtonComponent text="Create" />
       </div>
       <ul>{props.children}</ul>
     </div>

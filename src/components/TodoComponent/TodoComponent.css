@@ -1,13 +1,12 @@
 .todo-component {
-    background: #FFF9EB;
-    list-style-type: none;
-    border-radius: 25px;
-    padding: 15px;
-    color: #0D253F;
-    font-family: Chewy;
-    font-size: 20px;
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-around;
+  background: #fff9eb;
+  list-style-type: none;
+  border-radius: 25px;
+  padding: 15px;
+  color: #0d253f;
+  font-family: Chewy;
+  font-size: 20px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
 }
-  

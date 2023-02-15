@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import './TodoComponent.css'
+import "./TodoComponent.css";
 
 const TodoComponent = (props) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -42,27 +42,43 @@ const TodoComponent = (props) => {
       background: "none",
       fontFamily: "Chewy",
       fontSize: "20px",
-    }
-  }
+    },
+  };
 
   return (
-      <li className="todo-component">
-        <button
-          style={props.todo.isChecked ? reactiveStyles.activeStyles : reactiveStyles.inactiveStyles}
-          onClick={props.onToogleTodo}
-        >
-          ✓
-        </button>
-        <span style={props.todo.isChecked ? {textDecoration: "line-through"} : {textDecoration: "none"}}>{props.todo.text}</span>
-        <button
-          style={isHovered ? reactiveStyles.hoverStyles : reactiveStyles.invectiveDelete}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onClick={props.onDeleteTodo}
-        >
-          x
-        </button>
-      </li>
+    <li className="todo-component">
+      <button
+        style={
+          props.todo.isChecked
+            ? reactiveStyles.activeStyles
+            : reactiveStyles.inactiveStyles
+        }
+        onClick={props.onToogleTodo}
+      >
+        ✓
+      </button>
+      <span
+        style={
+          props.todo.isChecked
+            ? { textDecoration: "line-through" }
+            : { textDecoration: "none" }
+        }
+      >
+        {props.todo.text}
+      </span>
+      <button
+        style={
+          isHovered
+            ? reactiveStyles.hoverStyles
+            : reactiveStyles.invectiveDelete
+        }
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={props.onDeleteTodo}
+      >
+        x
+      </button>
+    </li>
   );
 };
 
