@@ -1,9 +1,11 @@
 import React from "react";
+import { TodoContext } from "../../TodoContext";
 import "./ButtonComponent.css";
 
 const ButtonComponent = (props) => {
+  const {setOpenModal} = React.useContext(TodoContext)
   const onClickButton = () => {
-    alert("Modal Opening");
+    setOpenModal(true)
   };
   return (
     <div className="button-component">
