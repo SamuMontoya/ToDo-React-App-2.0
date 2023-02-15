@@ -14,7 +14,7 @@ function TodoProvider(props) {
   const completedTodos = todos.filter((todo) => !!todo.isChecked).length;
   const totalTodos = todos.length;
   let searchedTodos = [];
-  if (searchValue.length == 0) {
+  if (searchValue.length === 0) {
     searchedTodos = todos;
   } else {
     searchedTodos = todos.filter((todo) => {

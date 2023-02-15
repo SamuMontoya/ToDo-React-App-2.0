@@ -14,11 +14,14 @@
   justify-content: space-around;
 }
 .no-todos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  height: 200px;
   background: #fff9eb;
   color: #0d253f;
-  text-align: center;
   border-radius: 25px;
-  padding: 50px;
   margin-top: 15px;
   font-family: Chewy;
   font-size: 20px;
