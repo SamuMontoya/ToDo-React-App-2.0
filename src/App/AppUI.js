@@ -10,7 +10,7 @@ import "./App.css";
 function AppUI() {
   return (
     <TodoContext.Consumer>
-      {({ dataState, searchedTodos, toogleTodo, deleteTodo }) => (
+      {({ dataState, searchedTodos, toogleTodo, deleteTodo, totalTodos }) => (
         <div className="app">
           <HeaderComponent>
             <ProgressComponent />
@@ -19,8 +19,12 @@ function AppUI() {
           <ListComponent>
             {dataState.error && <p>Hubo un error</p>}
             {dataState.loading && <div className="loader no-todos"></div>}
-            {!dataState.loading && searchedTodos.length && (
+            {!dataState.loading && totalTodos === 0 ? (
               <p className="no-todos">¡Create a new ToDo!</p>
+            ) :!dataState.loading && searchedTodos.length === 0 ? (
+              <p className="no-todos">There are no matches...</p>
+            ) : (
+              ""
             )}
 
             {searchedTodos.map((todo) => (

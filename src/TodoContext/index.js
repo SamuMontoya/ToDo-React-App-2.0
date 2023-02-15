@@ -38,6 +38,10 @@ function TodoProvider(props) {
     saveTodos(newTodos);
   };
 
+  const onChangeSearch = (event) => {
+    setSearchValue(event.target.value);
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -49,6 +53,7 @@ function TodoProvider(props) {
         toogleTodo,
         deleteTodo,
         dataState,
+        onChangeSearch,
       }}
     >
       {props.children}

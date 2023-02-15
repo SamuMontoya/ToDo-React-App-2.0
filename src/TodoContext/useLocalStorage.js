@@ -25,7 +25,7 @@ function useLocalStorage(itemName, initialValue) {
       } catch (catchError) {
         setDataState({ loading: false, error: catchError });
       }
-    }, 3000);
+    }, 1500);
   });
 
   const saveItem = (newItem) => {

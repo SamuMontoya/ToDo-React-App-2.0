@@ -1,16 +1,21 @@
 import React from "react";
+import { TodoContext } from "../../TodoContext";
 import { CircleProgress } from "./CircleProgress";
-import './ProgressComponent.css'
+import "./ProgressComponent.css";
 
 const ProgressComponent = (props) => {
   return (
-    <div className="progress-component">
-      <CircleProgress
-        completedTodos={ props.completedTodos }
-        totalTodos ={ props.totalTodos }
-        circleWidth="200"
-      />
-    </div>
+    <TodoContext.Consumer>
+      {({ completedTodos, totalTodos }) => (
+        <div className="progress-component">
+        <CircleProgress
+          completedTodos={completedTodos}
+          totalTodos={totalTodos}
+          circleWidth="200"
+        />
+      </div>
+      )}
+    </TodoContext.Consumer>
   );
 };
 
