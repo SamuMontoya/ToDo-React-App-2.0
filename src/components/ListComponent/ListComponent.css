@@ -37,7 +37,7 @@
 
 @media screen and (max-width: 550px) {
   .list-component {
-    min-height: 40vh;
+    min-height: 30vh;
   }
   .no-todos {
     height: 10vh;
