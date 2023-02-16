@@ -16,9 +16,9 @@ const ListComponent = () => {
         {dataState.error && <p>Hubo un error</p>}
         {dataState.loading && <div className="loader no-todos"></div>}
         {!dataState.loading && totalTodos === 0 ? (
-          <p className="no-todos">¡Create a new ToDo!</p>
+          <p className="no-todos">💡 Create a new ToDo ⤴️</p>
         ) : !dataState.loading && searchedTodos.length === 0 ? (
-          <p className="no-todos">There are no matches...</p>
+          <p className="no-todos">🤯 There are no matches... </p>
         ) : (
           searchedTodos.map((todo) => (
             <TodoComponent
