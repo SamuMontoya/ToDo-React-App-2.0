@@ -58,6 +58,7 @@ const TodoComponent = (props) => {
         ✓
       </button>
       <span
+        className="todo-text"
         style={
           props.todo.isChecked
             ? { textDecoration: "line-through" }
@@ -67,6 +68,7 @@ const TodoComponent = (props) => {
         {props.todo.text}
       </span>
       <button
+        className="todo-button"
         style={
           isHovered
             ? reactiveStyles.hoverStyles

@@ -10,3 +10,10 @@
   display: flex;
   justify-content: space-around;
 }
+.todo-text {
+  max-width: 70%;
+  text-align: center;
+}
+.todo-button {
+  align-self: center;
+}
