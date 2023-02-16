@@ -29,6 +29,12 @@ function FormComponent() {
     }, 0);
   }, []);
 
+  const onKeyDown = (event) => {
+    if(event.key === 'Enter') {
+      onSubmit(event)
+    }
+  }
+
   return (
     <form onSubmit={onSubmit} className="popup" ref={elementRef}>
       <label>Create a new ToDo</label>
@@ -36,12 +42,14 @@ function FormComponent() {
         value={newTodoValue}
         onChange={onChange}
         placeholder="Write your ToDo here..."
+        onKeyDown={onKeyDown}
+        autoFocus
       />
       <div className="buttons-area">
         <button type="button" onClick={onCancel} className="btn">
           Cancel
         </button>
-        <button type="submit" className="btn" style={{ background: "#309398" }}>
+        <button  type="submit" className="btn" style={{ background: "#309398" }}>
           OK
         </button>
       </div>
