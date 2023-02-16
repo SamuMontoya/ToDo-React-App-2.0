@@ -3,7 +3,7 @@
   padding: 25px;
   margin-top: 20px;
   border-radius: 25px 25px 0 0;
-  min-height: 34vh;
+  min-height: 40vh;
 }
 .headList {
   text-align: center;
@@ -18,7 +18,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  height: 18vh;
+  height: 25vh;
   background: #fff9eb;
   color: #0d253f;
   border-radius: 25px;
