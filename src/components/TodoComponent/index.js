@@ -5,19 +5,6 @@ const TodoComponent = (props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const reactiveStyles = {
-    hoverStyles: {
-      background: "#e46471",
-      color: "#fff9eb",
-      width: "30px",
-      height: "30px",
-      textAlign: "center",
-      borderRadius: "30px",
-      border: "none",
-      fontFamily: "Chewy",
-      fontSize: "20px",
-    },
-    activeStyles: {
-      background: "#abe188",
       color: "#fff9eb",
       width: "30px",
       height: "30px",
@@ -27,31 +14,17 @@ const TodoComponent = (props) => {
       fontFamily: "Chewy",
       fontSize: "20px",
       fontWeight: "1000",
-    },
-    inactiveStyles: {
-      color: "#abe188",
-      border: "none",
-      background: "none",
-      fontFamily: "Chewy",
-      fontSize: "20px",
-      fontWeight: "1000",
-    },
-    invectiveDelete: {
-      color: "#e46471",
-      border: "none",
-      background: "none",
-      fontFamily: "Chewy",
-      fontSize: "20px",
-    },
+      alignSelf: "center",
   };
 
   return (
     <li className="todo-component">
       <button
+        className="todo-button"
         style={
           props.todo.isChecked
-            ? reactiveStyles.activeStyles
-            : reactiveStyles.inactiveStyles
+            ? {background: "#abe188", ...reactiveStyles}
+            : {color: "#abe188"}
         }
         onClick={props.onToogleTodo}
       >
@@ -71,8 +44,8 @@ const TodoComponent = (props) => {
         className="todo-button"
         style={
           isHovered
-            ? reactiveStyles.hoverStyles
-            : reactiveStyles.invectiveDelete
+            ? {background: "#e46471", ...reactiveStyles}
+            : {color: "#e46471"}
         }
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

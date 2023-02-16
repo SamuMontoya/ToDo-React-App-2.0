@@ -25,4 +25,10 @@
   margin-top: 15px;
   font-family: Chewy;
   font-size: 20px;
+  width: 100%;
+}
+.todos-space {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

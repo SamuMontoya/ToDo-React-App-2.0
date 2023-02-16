@@ -12,7 +12,7 @@ const ListComponent = () => {
         <h2 className="title">List ToDo's</h2>
         <ButtonComponent text="Create" />
       </div>
-      <ul>
+      <ul className="todos-space">
         {dataState.error && <p>Hubo un error</p>}
         {dataState.loading && <div className="loader no-todos"></div>}
         {!dataState.loading && totalTodos === 0 ? (
