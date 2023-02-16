@@ -6,7 +6,6 @@
   min-height: 56vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 }
 .headList {
   text-align: center;
@@ -21,7 +20,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  height: 25vh;
+  height: 40vh;
   background: #fff9eb;
   color: #0d253f;
   border-radius: 25px;
