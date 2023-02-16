@@ -42,7 +42,7 @@ function FormComponent() {
           Cancel
         </button>
         <button type="submit" className="btn" style={{ background: "#309398" }}>
-          Create
+          OK
         </button>
       </div>
     </form>
