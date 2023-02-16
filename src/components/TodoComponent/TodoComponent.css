@@ -16,6 +16,9 @@
   max-width: 70%;
   text-align: center;
   align-items: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .todo-button {
   border: none;

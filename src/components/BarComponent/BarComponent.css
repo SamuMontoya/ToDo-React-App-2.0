@@ -1,5 +1,6 @@
 .bar-component {
   display: flex;
+  flex-wrap: wrap;
   width: 90%;
   justify-content: space-around;
   padding: 15px;
@@ -9,6 +10,7 @@
   font-family: Chewy;
   color: #0d253f;
   font-size: 25px;
+  align-content: center;
 }
 .search {
   font-family: Chewy;
@@ -17,4 +19,9 @@
   border-radius: 20px;
   padding: 0 15px;
   border: none;
+}
+@media screen and (max-width: 550px) {
+  .bar-component {
+    height: 8vh;
+  }
 }
