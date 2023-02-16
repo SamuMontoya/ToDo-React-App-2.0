@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ToDo-Productivity-App/static/css/main.ce9d5b25.css",
+    "main.css": "/ToDo-Productivity-App/static/css/main.a0845eeb.css",
     "main.js": "/ToDo-Productivity-App/static/js/main.3be17a2c.js",
     "index.html": "/ToDo-Productivity-App/index.html",
-    "main.ce9d5b25.css.map": "/ToDo-Productivity-App/static/css/main.ce9d5b25.css.map",
+    "main.a0845eeb.css.map": "/ToDo-Productivity-App/static/css/main.a0845eeb.css.map",
     "main.3be17a2c.js.map": "/ToDo-Productivity-App/static/js/main.3be17a2c.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce9d5b25.css",
+    "static/css/main.a0845eeb.css",
     "static/js/main.3be17a2c.js"
   ]
 }
