@@ -34,6 +34,18 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.btn {
+  border-radius: 30px;
+  padding: 0 10px;
+  height: 40px;
+  color: #f3f3f3;
+  font-size: 20px;
+  font-family: Chewy;
+  cursor: pointer;
+  border: none;
+  background: #e46471;
+}
+
 
 @media screen and (max-width: 550px) {
   .list-component {

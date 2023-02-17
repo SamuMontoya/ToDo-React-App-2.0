@@ -1,15 +1,12 @@
 import React from "react";
-import { TodoContext } from "../../TodoContext";
-import { TodoComponent } from "../TodoComponent";
-import { ButtonComponent } from "../ButtonComponent";
 import "./ListComponent.css";
 
-const ListComponent = ({children}) => {
+const ListComponent = ({children, onClickButton}) => {
   return (
     <div className="list-component">
       <div className="headList">
         <h2 className="title">List ToDo's</h2>
-        <ButtonComponent text="Create" />
+        <button className="btn" onClick={onClickButton}>Create</button>
       </div>
       <ul className="todos-space">
         {children}

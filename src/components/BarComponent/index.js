@@ -1,9 +1,7 @@
 import React from "react";
-import { TodoContext } from "../../TodoContext";
 import "./BarComponent.css";
 
-const BarComponent = () => {
-  const { onChangeSearch, searchValue } = React.useContext(TodoContext);
+const BarComponent = ({searchValue, onChangeSearch}) => {
   return (
     <div className="bar-component">
       <input

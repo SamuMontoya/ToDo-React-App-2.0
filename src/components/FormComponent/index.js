@@ -1,9 +1,7 @@
 import React from "react";
-import { TodoContext } from "../../TodoContext";
 import "./FormComponent.css";
 
-function FormComponent() {
-  const { addTodo, setOpenModal } = React.useContext(TodoContext);
+function FormComponent({ setOpenModal, addTodo }) {
   const [newTodoValue, setNewTodoValue] = React.useState("");
   const onCancel = () => {
     setOpenModal(false);
@@ -30,10 +28,10 @@ function FormComponent() {
   }, []);
 
   const onKeyDown = (event) => {
-    if(event.key === 'Enter') {
-      onSubmit(event)
+    if (event.key === "Enter") {
+      onSubmit(event);
     }
-  }
+  };
 
   return (
     <form onSubmit={onSubmit} className="popup" ref={elementRef}>
@@ -49,7 +47,7 @@ function FormComponent() {
         <button type="button" onClick={onCancel} className="btn">
           Cancel
         </button>
-        <button  type="submit" className="btn" style={{ background: "#309398" }}>
+        <button type="submit" className="btn" style={{ background: "#309398" }}>
           OK
         </button>
       </div>
