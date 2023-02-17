@@ -4,8 +4,7 @@ import { TodoComponent } from "../TodoComponent";
 import { ButtonComponent } from "../ButtonComponent";
 import "./ListComponent.css";
 
-const ListComponent = () => {
-  const {dataState, totalTodos, searchedTodos, toogleTodo, deleteTodo} = React.useContext(TodoContext)
+const ListComponent = ({children}) => {
   return (
     <div className="list-component">
       <div className="headList">
@@ -13,22 +12,7 @@ const ListComponent = () => {
         <ButtonComponent text="Create" />
       </div>
       <ul className="todos-space">
-        {dataState.error && <p>Hubo un error</p>}
-        {dataState.loading && <div className="loader no-todos"></div>}
-        {!dataState.loading && totalTodos === 0 ? (
-          <p className="no-todos">💡 Create a new ToDo ⤴️</p>
-        ) : !dataState.loading && searchedTodos.length === 0 ? (
-          <p className="no-todos">🤯 There are no matches... </p>
-        ) : (
-          searchedTodos.map((todo) => (
-            <TodoComponent
-              todo={todo}
-              key={todo.text}
-              onToogleTodo={() => toogleTodo(todo.text)}
-              onDeleteTodo={() => deleteTodo(todo.text)}
-            />
-          ))
-        )}
+        {children}
       </ul>
     </div>
   );
