@@ -44,8 +44,8 @@
   cursor: pointer;
   border: none;
   background: #e46471;
+  align-self: center;
 }
-
 
 @media screen and (max-width: 550px) {
   .list-component {

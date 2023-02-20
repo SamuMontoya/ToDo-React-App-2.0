@@ -1,5 +1,5 @@
 import React from "react";
-import { useTodos } from "./useTodos"
+import { useTodos } from "./useTodos";
 import { HeaderComponent } from "../components/HeaderComponent";
 import { ProgressComponent } from "../components/ProgressComponent";
 import { CircleProgress } from "../components/ProgressComponent/CircleProgress";
@@ -8,6 +8,10 @@ import { ListComponent } from "../components/ListComponent";
 import { ModalComponent } from "../components/ModalComponent";
 import { FormComponent } from "../components/FormComponent";
 import { TodoComponent } from "../components/TodoComponent";
+import { ErrorComponent } from "../components/ErrorComponent";
+import { LoadingComponent } from "../components/LoadingComponent";
+import { NoTodosComponent } from "../components/NoTodosComponent";
+import { NoMatchesComponent } from "../components/NoMatchesComponent";
 
 function App() {
   const {
@@ -36,28 +40,25 @@ function App() {
           />
         </ProgressComponent>
       </HeaderComponent>
-      <BarComponent 
-        onChangeSearch={onChangeSearch}
-        searchValue={searchValue}
-      />
-      <ListComponent onClickButton={onClickButton}>
-        {dataState.error && <p>Hubo un error</p>}
-        {dataState.loading && <div className="loader no-todos"></div>}
-        {!dataState.loading && totalTodos === 0 ? (
-          <p className="no-todos">💡 Create a new ToDo ⤴️</p>
-        ) : !dataState.loading && searchedTodos.length === 0 ? (
-          <p className="no-todos">🤯 There are no matches... </p>
-        ) : (
-          searchedTodos.map((todo) => (
-            <TodoComponent
-              todo={todo}
-              key={todo.text}
-              onToogleTodo={() => toogleTodo(todo.text)}
-              onDeleteTodo={() => deleteTodo(todo.text)}
-            />
-          ))
+      <BarComponent onChangeSearch={onChangeSearch} searchValue={searchValue} />
+      <ListComponent
+        dataState={dataState}
+        searchedTodos={searchedTodos}
+        onError={() => <ErrorComponent />}
+        onLoading={() => <LoadingComponent />}
+        onEmptyTodos={() => <NoTodosComponent />}
+        onNoMatches={() => <NoMatchesComponent />}
+        onClickButton={onClickButton}
+        render={(todo) => (
+          <TodoComponent
+            todo={todo}
+            key={todo.text}
+            onToogleTodo={() => toogleTodo(todo.text)}
+            onDeleteTodo={() => deleteTodo(todo.text)}
+          />
         )}
-      </ListComponent>
+      />
+
       {!!openModal && (
         <ModalComponent>
           <FormComponent addTodo={addTodo} setOpenModal={setOpenModal} />
