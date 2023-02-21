@@ -1,7 +1,7 @@
 import React from "react";
 
-function NoMatchesComponent() {
-  return <p className="no-todos">🤯 There are no matches... </p>;
+function NoMatchesComponent(props) {
+  return <p className="no-todos">🤯 There are no matches for: "{props.searchValue}"</p>;
 }
 
 export { NoMatchesComponent };

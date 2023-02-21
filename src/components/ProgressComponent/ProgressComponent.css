@@ -3,4 +3,6 @@
     margin: 0 15px;
     align-items: center;
   }
-  
+.progress-loading {
+  opacity: 50%;
+}

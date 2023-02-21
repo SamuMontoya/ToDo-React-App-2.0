@@ -1,7 +1,7 @@
 import React from "react";
 import "./BarComponent.css";
 
-const BarComponent = ({searchValue, onChangeSearch}) => {
+const BarComponent = ({searchValue, onChangeSearch, dataState}) => {
   return (
     <div className="bar-component">
       <input
@@ -10,6 +10,7 @@ const BarComponent = ({searchValue, onChangeSearch}) => {
         value={searchValue}
         placeholder="Search a ToDo..."
         onChange={onChangeSearch}
+        disabled={dataState.loading}
       ></input>
     </div>
   );

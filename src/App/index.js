@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="app">
       <HeaderComponent>
-        <ProgressComponent>
+        <ProgressComponent dataState={dataState}>
           <CircleProgress
             completedTodos={completedTodos}
             totalTodos={totalTodos}
@@ -40,16 +40,23 @@ function App() {
           />
         </ProgressComponent>
       </HeaderComponent>
-      <BarComponent onChangeSearch={onChangeSearch} searchValue={searchValue} />
+      <BarComponent
+        onChangeSearch={onChangeSearch}
+        searchValue={searchValue}
+        dataState={dataState}
+      />
       <ListComponent
         dataState={dataState}
         searchedTodos={searchedTodos}
+        setOpenModal={setOpenModal}
+        totalTodos={totalTodos}
         onError={() => <ErrorComponent />}
         onLoading={() => <LoadingComponent />}
         onEmptyTodos={() => <NoTodosComponent />}
-        onNoMatches={() => <NoMatchesComponent />}
+        onNoMatches={() => <NoMatchesComponent searchValue={searchValue} />}
         onClickButton={onClickButton}
-        render={(todo) => (
+      >
+        {(todo) => (
           <TodoComponent
             todo={todo}
             key={todo.text}
@@ -57,7 +64,7 @@ function App() {
             onDeleteTodo={() => deleteTodo(todo.text)}
           />
         )}
-      />
+      </ListComponent>
 
       {!!openModal && (
         <ModalComponent>

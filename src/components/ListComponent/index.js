@@ -2,6 +2,7 @@ import React from "react";
 import "./ListComponent.css";
 
 const ListComponent = (props) => {
+  const renderFunction = props.children || props.render
   return (
     <div className="list-component">
       <div className="headList">
@@ -10,9 +11,10 @@ const ListComponent = (props) => {
       </div>
       {props.dataState.error && props.onError()}
       {props.dataState.loading && props.onLoading()}
-      {(!props.dataState.loading && props.searchedTodos.length === 0) && props.onEmptyTodos()}
+      {(!props.dataState.loading && props.totalTodos === 0) && props.onEmptyTodos()}
+      {(!!props.totalTodos && props.searchedTodos.length === 0) && props.onNoMatches()}
       <ul className="todos-space">
-        {props.searchedTodos.map(props.render)}
+        {props.searchedTodos.map(renderFunction)}
       </ul>
     </div>
   );
