@@ -49,6 +49,7 @@
   border: none;
   background: #e46471;
   align-self: center;
+  z-index: 1;
 }
 
 @media screen and (max-width: 550px) {
