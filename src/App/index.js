@@ -13,7 +13,6 @@ import { LoadingComponent } from "../components/LoadingComponent";
 import { NoTodosComponent } from "../components/NoTodosComponent";
 import { NoMatchesComponent } from "../components/NoMatchesComponent";
 import { ChangeStorage } from "../components/ChangeLocalStorage";
-
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 function App() {
@@ -33,6 +32,7 @@ function App() {
     syncronizeTodos,
     onCreating,
     saveTodos,
+    todos,
   } = useTodos();
 
   return (
@@ -53,16 +53,16 @@ function App() {
           const srcI = param.source.index;
           const desI = param.destination?.index;
           if (desI !== undefined) {
-            searchedTodos.splice(desI, 0, searchedTodos.splice(srcI, 1)[0]);
+            todos.splice(desI, 0, todos.splice(srcI, 1)[0]);
           } else {
-            searchedTodos.splice(desI, 0, searchedTodos[srcI]);
+            todos.splice(desI, 0, todos[srcI]);
             if (srcI < desI) {
-              searchedTodos.splice(srcI, 1);
+              todos.splice(srcI, 1);
             } else {
-              searchedTodos.splice(srcI + 1, 1);
+              todos.splice(srcI + 1, 1);
             }
           }
-          saveTodos(searchedTodos);
+          saveTodos(todos);
         }}
       >
         <ListComponent

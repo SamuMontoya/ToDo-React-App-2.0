@@ -84,6 +84,7 @@ function useTodos() {
     syncronizeTodos,
     onCreating,
     saveTodos,
+    todos
   };
 }
 
