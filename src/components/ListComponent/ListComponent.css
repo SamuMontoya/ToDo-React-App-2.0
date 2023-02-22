@@ -1,6 +1,5 @@
 .list-component {
   background: #309398;
-  padding: 25px;
   margin-top: 20px;
   border-radius: 25px 25px 0 0;
   display: flex;
@@ -32,6 +31,9 @@
 .todos-space {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  top: -40px;
+  padding: 0;
   justify-content: center;
 }
 .btn {

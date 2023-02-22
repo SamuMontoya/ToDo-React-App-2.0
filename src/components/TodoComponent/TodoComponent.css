@@ -8,7 +8,7 @@
   font-size: 20px;
   display: flex;
   justify-content: space-around;
-  margin: 15px;
+  margin: 0 15px 15px;
   width: 300px;
 }
 .todo-text {
