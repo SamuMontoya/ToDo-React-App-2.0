@@ -52,10 +52,17 @@ function App() {
         onDragEnd={(param) => {
           const srcI = param.source.index;
           const desI = param.destination?.index;
-          if (desI) {
+          if (desI !== undefined) {
             searchedTodos.splice(desI, 0, searchedTodos.splice(srcI, 1)[0]);
-            saveTodos(searchedTodos);
+          } else {
+            searchedTodos.splice(desI, 0, searchedTodos[srcI]);
+            if (srcI < desI) {
+              searchedTodos.splice(srcI, 1);
+            } else {
+              searchedTodos.splice(srcI + 1, 1);
+            }
           }
+          saveTodos(searchedTodos);
         }}
       >
         <ListComponent
@@ -70,6 +77,7 @@ function App() {
           <Droppable droppableId="droppable-1">
             {(provided, _) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
+                <div style={{ height: "100px" }}></div>
                 {searchedTodos.map((todo, i) => (
                   <Draggable
                     key={todo.text}
