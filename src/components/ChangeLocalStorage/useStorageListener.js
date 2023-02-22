@@ -15,9 +15,9 @@ function useStorageListener(syncronizeTodos) {
   };
 
   return {
-    show: storageChange, 
-    toggleShow
-  }
-};
+    show: storageChange,
+    toggleShow,
+  };
+}
 
 export { useStorageListener };

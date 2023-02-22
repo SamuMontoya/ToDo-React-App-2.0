@@ -17,7 +17,7 @@
 .no-todos {
   display: flex;
   flex-wrap: wrap;
-  text-align: center;
+  justify-content: center;
   align-self: center;
   background: #fff9eb;
   color: #0d253f;

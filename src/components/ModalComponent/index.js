@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import './ModalComponent.css'
+import "./ModalComponent.css";
 
 function ModalComponent(props) {
   return ReactDOM.createPortal(
@@ -8,7 +8,7 @@ function ModalComponent(props) {
       {!!props.dataState.loading && props.onLoading()}
       {!!props.onCreating && props.onForm()}
     </div>,
-    document.getElementById('modal')
+    document.getElementById("modal")
   );
 }
 

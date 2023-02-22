@@ -1,7 +1,7 @@
 import React from "react";
 import "./BarComponent.css";
 
-const BarComponent = ({searchValue, onChangeSearch, dataState}) => {
+const BarComponent = ({ searchValue, onChangeSearch, dataState }) => {
   return (
     <div className="bar-component">
       <input

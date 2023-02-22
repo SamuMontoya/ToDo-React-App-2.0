@@ -1,7 +1,7 @@
 import React from "react";
 import "./HeaderComponent.css";
 
-const HeaderComponent = ({children}) => {
+const HeaderComponent = ({ children }) => {
   return (
     <header className="container">
       <h1 className="mainTitle">ToDo</h1>

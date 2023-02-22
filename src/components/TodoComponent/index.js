@@ -5,16 +5,16 @@ const TodoComponent = (props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const reactiveStyles = {
-      color: "#fff9eb",
-      width: "30px",
-      height: "30px",
-      textAlign: "center",
-      borderRadius: "30px",
-      border: "none",
-      fontFamily: "Chewy",
-      fontSize: "20px",
-      fontWeight: "1000",
-      alignSelf: "center",
+    color: "#fff9eb",
+    width: "30px",
+    height: "30px",
+    textAlign: "center",
+    borderRadius: "30px",
+    border: "none",
+    fontFamily: "Chewy",
+    fontSize: "20px",
+    fontWeight: "1000",
+    alignSelf: "center",
   };
 
   return (
@@ -23,8 +23,8 @@ const TodoComponent = (props) => {
         className="todo-button"
         style={
           props.todo.isChecked
-            ? {background: "#abe188", ...reactiveStyles}
-            : {color: "#abe188"}
+            ? { background: "#abe188", ...reactiveStyles }
+            : { color: "#abe188" }
         }
         onClick={props.onToogleTodo}
       >
@@ -44,8 +44,8 @@ const TodoComponent = (props) => {
         className="todo-button"
         style={
           isHovered
-            ? {background: "#e46471", ...reactiveStyles}
-            : {color: "#e46471"}
+            ? { background: "#e46471", ...reactiveStyles }
+            : { color: "#e46471" }
         }
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

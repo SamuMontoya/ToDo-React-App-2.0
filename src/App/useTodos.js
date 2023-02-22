@@ -2,8 +2,8 @@ import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 function useTodos() {
-  const [openModal, setOpenModal] = React.useState(false)
-  const [onCreating, setOnCreating] = React.useState(false)
+  const [openModal, setOpenModal] = React.useState(false);
+  const [onCreating, setOnCreating] = React.useState(false);
 
   const {
     item: todos,
@@ -11,7 +11,7 @@ function useTodos() {
     dataState,
     syncronizeTodos,
   } = useLocalStorage("TODOS_V1", []);
-  
+
   const [searchValue, setSearchValue] = React.useState("");
 
   const completedTodos = todos.filter((todo) => !!todo.isChecked).length;
@@ -27,13 +27,12 @@ function useTodos() {
     });
   }
   React.useEffect(() => {
-    if(!!dataState.loading){
-      setOpenModal(true)
+    if (!!dataState.loading) {
+      setOpenModal(true);
     } else {
-      setOpenModal(false)
+      setOpenModal(false);
     }
-
-  },[dataState])
+  }, [dataState]);
 
   const toogleTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
@@ -48,7 +47,7 @@ function useTodos() {
       isChecked: false,
       text,
     });
-    setOnCreating(false)
+    setOnCreating(false);
     saveTodos(newTodos);
   };
 
@@ -65,26 +64,26 @@ function useTodos() {
 
   const onClickButton = () => {
     setOpenModal(true);
-    setOnCreating(true)
+    setOnCreating(true);
   };
 
   return {
-        completedTodos,
-        totalTodos,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        toogleTodo,
-        deleteTodo,
-        dataState,
-        onChangeSearch,
-        openModal,
-        setOpenModal,
-        addTodo,
-        onClickButton,
-        syncronizeTodos,
-        onCreating,
-      }
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    toogleTodo,
+    deleteTodo,
+    dataState,
+    onChangeSearch,
+    openModal,
+    setOpenModal,
+    addTodo,
+    onClickButton,
+    syncronizeTodos,
+    onCreating,
+  };
 }
 
 export { useTodos };

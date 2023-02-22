@@ -1,14 +1,14 @@
 .background {
-    fill: #F3F3F3;
-    stroke: #E46471;
+  fill: #f3f3f3;
+  stroke: #e46471;
 }
 .progress {
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .text {
-    font-size: 40px;
-    font-weight: bold;
-    font-family: Chewy;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Chewy;
 }

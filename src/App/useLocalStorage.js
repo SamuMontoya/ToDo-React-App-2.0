@@ -41,8 +41,8 @@ function useLocalStorage(itemName, initialValue) {
   };
 
   const syncronizeTodos = () => {
-      setDataState({ loading: true, error: false });
-      setSyncronize(false);
+    setDataState({ loading: true, error: false });
+    setSyncronize(false);
   };
 
   return { item, saveItem, dataState, syncronizeTodos };

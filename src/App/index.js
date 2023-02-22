@@ -43,10 +43,7 @@ function App() {
           />
         </ProgressComponent>
       </HeaderComponent>
-      <BarComponent
-        onChangeSearch={onChangeSearch}
-        searchValue={searchValue}
-      />
+      <BarComponent onChangeSearch={onChangeSearch} searchValue={searchValue} />
       <ListComponent
         dataState={dataState}
         searchedTodos={searchedTodos}
@@ -67,11 +64,13 @@ function App() {
       </ListComponent>
 
       {!!openModal && (
-        <ModalComponent 
+        <ModalComponent
           dataState={dataState}
           onCreating={onCreating}
           onLoading={() => <LoadingComponent />}
-          onForm={() => <FormComponent addTodo={addTodo} setOpenModal={setOpenModal} />}
+          onForm={() => (
+            <FormComponent addTodo={addTodo} setOpenModal={setOpenModal} />
+          )}
         />
       )}
       <ChangeStorage syncronizeTodos={syncronizeTodos} />

@@ -1,43 +1,43 @@
 .popup {
-    width: 80%;
-    background: #F9BE7C;
-    border-radius: 6px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    visibility: visible;
-    transition: transform 0.4s, top 0.4s;
+  width: 80%;
+  background: #f9be7c;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  visibility: visible;
+  transition: transform 0.4s, top 0.4s;
 }
 
-.open-popup{
-    visibility: visible;
-    top:50%;
-    transform: translate(-50%, -50%) scale(1);
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .popup label {
-    font-size: 30px;
-    color: #0D253F;
-    font-family: Chewy;
+  font-size: 30px;
+  color: #0d253f;
+  font-family: Chewy;
 }
 
 .popup textarea {
-    font-family: Chewy;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    margin: 15px;
-    font-size: 18px;
-    color:#4d4e4e;
-    outline: none;
+  font-family: Chewy;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  margin: 15px;
+  font-size: 18px;
+  color: #4d4e4e;
+  outline: none;
 }
 
 .buttons-area {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }

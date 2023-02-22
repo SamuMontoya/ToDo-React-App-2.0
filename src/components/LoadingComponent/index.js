@@ -1,5 +1,5 @@
 import React from "react";
-import './LoadingComponent.css'
+import "./LoadingComponent.css";
 
 function LoadingComponent(props) {
   return <div className="loader"></div>;
