@@ -19,14 +19,17 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+  align-self: center;
   background: #fff9eb;
   color: #0d253f;
   border-radius: 25px;
-  margin-top: 15px;
+  margin: 15px;
   font-family: Chewy;
   font-size: 20px;
-  width: 100%;
+  width: 80%;
   height: 30vh;
+  position: relative;
+  top: -40px;
 }
 .todos-space {
   display: flex;
