@@ -2,7 +2,6 @@ import React from "react";
 import "./ListComponent.css";
 
 const ListComponent = (props) => {
-  const renderFunction = props.children || props.render;
   return (
     <div className="list-component">
       <div className="headList">
@@ -18,7 +17,7 @@ const ListComponent = (props) => {
       {!!props.totalTodos &&
         props.searchedTodos.length === 0 &&
         props.onNoMatches()}
-      <ul className="todos-space">{props.searchedTodos.map(renderFunction)}</ul>
+      <ul className="todos-space">{props.children}</ul>
     </div>
   );
 };

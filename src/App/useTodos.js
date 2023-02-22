@@ -83,6 +83,7 @@ function useTodos() {
     onClickButton,
     syncronizeTodos,
     onCreating,
+    saveTodos,
   };
 }
 

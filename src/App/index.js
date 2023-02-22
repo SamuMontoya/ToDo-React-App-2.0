@@ -14,6 +14,8 @@ import { NoTodosComponent } from "../components/NoTodosComponent";
 import { NoMatchesComponent } from "../components/NoMatchesComponent";
 import { ChangeStorage } from "../components/ChangeLocalStorage";
 
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 function App() {
   const {
     dataState,
@@ -30,6 +32,7 @@ function App() {
     onClickButton,
     syncronizeTodos,
     onCreating,
+    saveTodos,
   } = useTodos();
 
   return (
@@ -44,24 +47,56 @@ function App() {
         </ProgressComponent>
       </HeaderComponent>
       <BarComponent onChangeSearch={onChangeSearch} searchValue={searchValue} />
-      <ListComponent
-        dataState={dataState}
-        searchedTodos={searchedTodos}
-        totalTodos={totalTodos}
-        onError={() => <ErrorComponent />}
-        onEmptyTodos={() => <NoTodosComponent />}
-        onNoMatches={() => <NoMatchesComponent searchValue={searchValue} />}
-        onClickButton={onClickButton}
+
+      <DragDropContext
+        onDragEnd={(param) => {
+          const srcI = param.source.index;
+          const desI = param.destination?.index;
+          if (desI) {
+            searchedTodos.splice(desI, 0, searchedTodos.splice(srcI, 1)[0]);
+            saveTodos(searchedTodos);
+          }
+        }}
       >
-        {(todo) => (
-          <TodoComponent
-            todo={todo}
-            key={todo.text}
-            onToogleTodo={() => toogleTodo(todo.text)}
-            onDeleteTodo={() => deleteTodo(todo.text)}
-          />
-        )}
-      </ListComponent>
+        <ListComponent
+          dataState={dataState}
+          searchedTodos={searchedTodos}
+          totalTodos={totalTodos}
+          onError={() => <ErrorComponent />}
+          onEmptyTodos={() => <NoTodosComponent />}
+          onNoMatches={() => <NoMatchesComponent searchValue={searchValue} />}
+          onClickButton={onClickButton}
+        >
+          <Droppable droppableId="droppable-1">
+            {(provided, _) => (
+              <div ref={provided.innerRef} {...provided.droppableProps}>
+                {searchedTodos.map((todo, i) => (
+                  <Draggable
+                    key={todo.text}
+                    draggableId={"draggable-" + todo.text}
+                    index={i}
+                  >
+                    {(provided, _) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <TodoComponent
+                          todo={todo}
+                          onToogleTodo={() => toogleTodo(todo.text)}
+                          onDeleteTodo={() => deleteTodo(todo.text)}
+                        />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </ListComponent>
+      </DragDropContext>
 
       {!!openModal && (
         <ModalComponent
