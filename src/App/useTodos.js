@@ -2,6 +2,9 @@ import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 function useTodos() {
+  const [openModal, setOpenModal] = React.useState(false)
+  const [onCreating, setOnCreating] = React.useState(false)
+
   const {
     item: todos,
     saveItem: saveTodos,
@@ -10,7 +13,6 @@ function useTodos() {
   } = useLocalStorage("TODOS_V1", []);
   
   const [searchValue, setSearchValue] = React.useState("");
-  const [openModal, setOpenModal] = React.useState(false)
 
   const completedTodos = todos.filter((todo) => !!todo.isChecked).length;
   const totalTodos = todos.length;
@@ -24,6 +26,14 @@ function useTodos() {
       return todoText.includes(searchText);
     });
   }
+  React.useEffect(() => {
+    if(!!dataState.loading){
+      setOpenModal(true)
+    } else {
+      setOpenModal(false)
+    }
+
+  },[dataState])
 
   const toogleTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
@@ -38,6 +48,7 @@ function useTodos() {
       isChecked: false,
       text,
     });
+    setOnCreating(false)
     saveTodos(newTodos);
   };
 
@@ -54,6 +65,7 @@ function useTodos() {
 
   const onClickButton = () => {
     setOpenModal(true);
+    setOnCreating(true)
   };
 
   return {
@@ -71,6 +83,7 @@ function useTodos() {
         addTodo,
         onClickButton,
         syncronizeTodos,
+        onCreating,
       }
 }
 

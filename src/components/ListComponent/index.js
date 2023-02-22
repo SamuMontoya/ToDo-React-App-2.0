@@ -10,7 +10,6 @@ const ListComponent = (props) => {
         <button className="btn" onClick={props.onClickButton}>Create</button>
       </div>
       {props.dataState.error && props.onError()}
-      {props.dataState.loading && props.onLoading()}
       {(!props.dataState.loading && props.totalTodos === 0) && props.onEmptyTodos()}
       {(!!props.totalTodos && props.searchedTodos.length === 0) && props.onNoMatches()}
       <ul className="todos-space">

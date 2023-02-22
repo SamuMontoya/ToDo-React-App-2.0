@@ -1,6 +1,6 @@
 .progress-component {
     display: flex;
-    margin: 0 15px;
+    margin: 15px;
     align-items: center;
   }
 .progress-loading {

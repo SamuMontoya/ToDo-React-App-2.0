@@ -10,7 +10,6 @@ const BarComponent = ({searchValue, onChangeSearch, dataState}) => {
         value={searchValue}
         placeholder="Search a ToDo..."
         onChange={onChangeSearch}
-        disabled={dataState.loading}
       ></input>
     </div>
   );

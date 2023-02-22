@@ -29,12 +29,13 @@ function App() {
     openModal,
     onClickButton,
     syncronizeTodos,
+    onCreating,
   } = useTodos();
 
   return (
     <div className="app">
       <HeaderComponent>
-        <ProgressComponent dataState={dataState}>
+        <ProgressComponent>
           <CircleProgress
             completedTodos={completedTodos}
             totalTodos={totalTodos}
@@ -45,15 +46,12 @@ function App() {
       <BarComponent
         onChangeSearch={onChangeSearch}
         searchValue={searchValue}
-        dataState={dataState}
       />
       <ListComponent
         dataState={dataState}
         searchedTodos={searchedTodos}
-        setOpenModal={setOpenModal}
         totalTodos={totalTodos}
         onError={() => <ErrorComponent />}
-        onLoading={() => <LoadingComponent />}
         onEmptyTodos={() => <NoTodosComponent />}
         onNoMatches={() => <NoMatchesComponent searchValue={searchValue} />}
         onClickButton={onClickButton}
@@ -69,9 +67,12 @@ function App() {
       </ListComponent>
 
       {!!openModal && (
-        <ModalComponent>
-          <FormComponent addTodo={addTodo} setOpenModal={setOpenModal} />
-        </ModalComponent>
+        <ModalComponent 
+          dataState={dataState}
+          onCreating={onCreating}
+          onLoading={() => <LoadingComponent />}
+          onForm={() => <FormComponent addTodo={addTodo} setOpenModal={setOpenModal} />}
+        />
       )}
       <ChangeStorage syncronizeTodos={syncronizeTodos} />
     </div>

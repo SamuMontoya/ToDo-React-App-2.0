@@ -1,8 +1,8 @@
 import React from "react";
 import './LoadingComponent.css'
 
-function LoadingComponent() {
-  return <div className="loader no-todos"></div>;
+function LoadingComponent(props) {
+  return <div className="loader"></div>;
 }
 
 export { LoadingComponent };

@@ -3,7 +3,7 @@ import "./ProgressComponent.css";
 
 const ProgressComponent = (props) => {
   return (
-    <div className={`progress-component ${!!props.dataState.loading && "progress-loading"}`}>
+    <div className="progress-component">
       {props.children}
     </div>
   );
