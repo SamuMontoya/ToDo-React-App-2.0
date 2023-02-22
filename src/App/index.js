@@ -12,6 +12,7 @@ import { ErrorComponent } from "../components/ErrorComponent";
 import { LoadingComponent } from "../components/LoadingComponent";
 import { NoTodosComponent } from "../components/NoTodosComponent";
 import { NoMatchesComponent } from "../components/NoMatchesComponent";
+import { ChangeStorage } from "../components/ChangeLocalStorage";
 
 function App() {
   const {
@@ -27,6 +28,7 @@ function App() {
     searchValue,
     openModal,
     onClickButton,
+    syncronizeTodos,
   } = useTodos();
 
   return (
@@ -71,6 +73,7 @@ function App() {
           <FormComponent addTodo={addTodo} setOpenModal={setOpenModal} />
         </ModalComponent>
       )}
+      <ChangeStorage syncronizeTodos={syncronizeTodos} />
     </div>
   );
 }
