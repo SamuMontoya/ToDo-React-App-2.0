@@ -17,8 +17,7 @@
 .no-todos {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
+  text-align: center;
   align-self: center;
   background: #fff9eb;
   color: #0d253f;
@@ -27,9 +26,9 @@
   font-family: Chewy;
   font-size: 20px;
   width: 80%;
-  height: 30vh;
   position: relative;
   top: -40px;
+  padding: 15px;
 }
 .todos-space {
   display: flex;
@@ -55,8 +54,5 @@
 @media screen and (max-width: 550px) {
   .list-component {
     min-height: 40vh;
-  }
-  .no-todos {
-    height: 10vh;
   }
 }
