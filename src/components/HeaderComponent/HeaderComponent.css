@@ -5,33 +5,19 @@
   font-family: Chewy;
   color: #0d253f;
   background: #f9be7c;
-  border-radius: 25px;
-  padding-top: 25px;
   position: relative;
-  top: -25px;
-  padding-bottom: 15px;
+  height: 100vh;
+  width: 40vw;
+  border-radius: 0 25px 25px 0;
 }
 .mainTitle {
   font-size: 100px;
   margin: 15px;
   align-self: center;
+  width: 100%;
+  text-align: center;
 }
 .secondTitle {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: right;
-  align-content: center;
-  max-width: 100px;
-}
-
-@media screen and (max-width: 550px) {
-  .container {
-    height: 50vh;
-  }
-  .mainTitle {
-    font-size: 60px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-  }
+  width: 100%;
+  text-align: center;
 }

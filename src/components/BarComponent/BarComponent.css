@@ -1,16 +1,10 @@
 .bar-component {
   display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  justify-content: space-around;
+  width: 60vw;
   padding: 15px;
+  margin: 15px;
   border-radius: 40px;
-  margin: 0 auto;
   background: #e46471;
-  font-family: Chewy;
-  color: #0d253f;
-  font-size: 25px;
-  align-content: center;
 }
 .search {
   font-family: Chewy;
@@ -19,9 +13,4 @@
   border-radius: 20px;
   padding: 0 15px;
   border: none;
-}
-@media screen and (max-width: 550px) {
-  .bar-component {
-    height: 4vh;
-  }
 }
