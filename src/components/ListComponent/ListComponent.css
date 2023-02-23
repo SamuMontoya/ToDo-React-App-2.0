@@ -12,13 +12,11 @@
 }
 .no-todos {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-self: center;
   background: #fff9eb;
   color: #0d253f;
   border-radius: 25px;
-  margin: 15px;
+  margin: 15px auto;
   font-family: Chewy;
   font-size: 20px;
   width: 80%;
