@@ -1,9 +1,6 @@
 .list-component {
   background: #309398;
-  margin-top: 16px;
-  border-radius: 25px;
-  height: 82vh;
-  width: 50vw;
+  border-radius: 40px 40px 0 0;
 }
 .headList {
   text-align: center;
@@ -49,9 +46,9 @@
   align-self: center;
   z-index: 1;
 }
-
-@media screen and (max-width: 550px) {
+@media only screen and (min-width: 700px) {
   .list-component {
-    min-height: 40vh;
+    height: 82vh;
+    border-radius: 40px;
   }
 }
