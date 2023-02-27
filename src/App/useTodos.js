@@ -42,11 +42,7 @@ function useTodos() {
   };
 
   const addTodo = (text) => {
-    const newTodos = [...todos];
-    newTodos.push({
-      isChecked: false,
-      text,
-    });
+    const newTodos = [{isChecked: false, text}, ...todos]
     setOnCreating(false);
     saveTodos(newTodos);
   };
