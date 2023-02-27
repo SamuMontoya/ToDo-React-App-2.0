@@ -48,7 +48,7 @@ function App() {
         </ProgressComponent>
       </HeaderComponent>
       <div className="main-content">
-      <BarComponent
+        <BarComponent
           onChangeSearch={onChangeSearch}
           searchValue={searchValue}
         />
@@ -68,6 +68,7 @@ function App() {
             }
             saveTodos(todos);
           }}
+          options={{ autoScroll: true }}
         >
           <ListComponent
             dataState={dataState}
@@ -78,34 +79,35 @@ function App() {
             onNoMatches={() => <NoMatchesComponent searchValue={searchValue} />}
             onClickButton={onClickButton}
           >
-            <Droppable droppableId="droppable-1">
+            <Droppable droppableId="droppable-1" direction="vertical">
               {(provided, _) => (
-                <div ref={provided.innerRef} {...provided.droppableProps}>
-                  <div style={{ height: "100px", width: "100%" }}></div>
-                  <div className="scrol-list">
-                    {searchedTodos.map((todo, i) => (
-                      <Draggable
-                        key={todo.text}
-                        draggableId={"draggable-" + todo.text}
-                        index={i}
-                      >
-                        {(provided, _) => (
-                          <div
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                          >
-                            <TodoComponent
-                              todo={todo}
-                              onToogleTodo={() => toogleTodo(todo.text)}
-                              onDeleteTodo={() => deleteTodo(todo.text)}
-                            />
-                          </div>
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </div>
+                <div
+                  className="scrol-list"
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                >
+                  {searchedTodos.map((todo, i) => (
+                    <Draggable
+                      key={todo.text}
+                      draggableId={"draggable-" + todo.text}
+                      index={i}
+                    >
+                      {(provided, _) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <TodoComponent
+                            todo={todo}
+                            onToogleTodo={() => toogleTodo(todo.text)}
+                            onDeleteTodo={() => deleteTodo(todo.text)}
+                          />
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
                 </div>
               )}
             </Droppable>
