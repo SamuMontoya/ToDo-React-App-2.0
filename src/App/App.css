@@ -10,15 +10,12 @@
 }
 .main-content {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   margin: 0 auto;
   width: 50vw;
 }
-.scrol-list {
-  height: 60vh;
-}
 .scrol-list::-webkit-scrollbar-thumb {
-  background-color: #F9BE7C;
+  background-color: #f9be7c;
   border-radius: 20px;
 }
 .scrol-list::-webkit-scrollbar {
@@ -32,5 +29,6 @@
 @media only screen and (min-width: 700px) {
   .scrol-list {
     overflow-y: scroll;
+    height: 60vh;
   }
 }
