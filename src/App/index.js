@@ -88,8 +88,8 @@ function App() {
                 >
                   {searchedTodos.map((todo, i) => (
                     <Draggable
-                      key={todo.text}
-                      draggableId={"draggable-" + todo.text}
+                      key={todo.id}
+                      draggableId={"draggable-" + todo.id}
                       index={i}
                     >
                       {(provided, _) => (
@@ -100,8 +100,8 @@ function App() {
                         >
                           <TodoComponent
                             todo={todo}
-                            onToogleTodo={() => toogleTodo(todo.text)}
-                            onDeleteTodo={() => deleteTodo(todo.text)}
+                            onToogleTodo={() => toogleTodo(todo.id)}
+                            onDeleteTodo={() => deleteTodo(todo.id)}
                           />
                         </div>
                       )}

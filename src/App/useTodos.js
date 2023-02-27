@@ -34,21 +34,23 @@ function useTodos() {
     }
   }, [dataState]);
 
-  const toogleTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
+  const toogleTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
     newTodos[todoIndex].isChecked = !newTodos[todoIndex].isChecked;
     saveTodos(newTodos);
   };
 
   const addTodo = (text) => {
-    const newTodos = [{isChecked: false, text}, ...todos]
+    const randomId = Date.now()
+    console.log(randomId)
+    const newTodos = [{isChecked: false, text, id:randomId}, ...todos]
     setOnCreating(false);
     saveTodos(newTodos);
   };
 
-  const deleteTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
+  const deleteTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
