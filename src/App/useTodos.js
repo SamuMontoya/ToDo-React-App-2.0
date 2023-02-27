@@ -43,7 +43,6 @@ function useTodos() {
 
   const addTodo = (text) => {
     const randomId = Date.now()
-    console.log(randomId)
     const newTodos = [{isChecked: false, text, id:randomId}, ...todos]
     setOnCreating(false);
     saveTodos(newTodos);
