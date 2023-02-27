@@ -8,7 +8,7 @@
   position: relative;
   height: 100vh;
   min-width: 350px;
-  width: 40vw;
+  width: 35vw;
 }
 .mainTitle {
   font-size: 100px;
@@ -22,7 +22,7 @@
   margin: 15px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 770px) {
   .container {
     width: 100%;
     height: auto;
@@ -32,12 +32,30 @@
     font-size: 80px;
   }
 }
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 770px) {
   .container {
-    border-radius: 0 40px 40px 0;
+    border-radius: 40px;
+    height: 95vh;
+    margin: 18px;
   }
   .mainTitle,
   .secondTitle {
     width: 100%;
+  }
+}
+
+@media only screen and (max-height: 770px) {
+  .container {
+    width: 100%;
+    border-radius: 0 0 40px 40px;
+    margin: 0;
+    height: auto;
+  }
+  .mainTitle {
+    font-size: 80px;
+    width: auto;
+  }
+  .secondTitle {
+    width: auto;
   }
 }
