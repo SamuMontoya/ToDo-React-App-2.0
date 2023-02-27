@@ -8,9 +8,8 @@
   font-size: 20px;
   display: flex;
   justify-content: space-around;
-  margin: 0 15px 15px;
-  min-width: 300px;
-  width: 30vw;
+  margin: 15px auto;
+  width: 80%;
 }
 .todo-text {
   display: flex;
@@ -24,15 +23,4 @@
   font-family: Chewy;
   font-size: 20px;
   font-weight: 1000;
-}
-@media only screen and (max-width: 770px) {
-  .todo-component {
-    width: 80vw;
-  }
-}
-
-@media only screen and (max-height: 770px) {
-  .todo-component {
-    width: 80vw;
-  }
 }
