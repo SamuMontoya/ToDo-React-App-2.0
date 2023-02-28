@@ -17,6 +17,10 @@
   text-align: center;
   align-items: center;
 }
+.todo-text:hover {
+  color: #F9BE7C;
+}
+
 .todo-button {
   border: none;
   background: none;

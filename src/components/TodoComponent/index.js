@@ -31,6 +31,7 @@ const TodoComponent = (props) => {
         ✓
       </button>
       <span
+        onClick={props.todoClick}
         className="todo-text"
         style={
           props.todo.isChecked

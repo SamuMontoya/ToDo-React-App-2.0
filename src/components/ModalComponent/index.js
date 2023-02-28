@@ -7,6 +7,7 @@ function ModalComponent(props) {
     <div className="background">
       {!!props.dataState.loading && props.onLoading()}
       {!!props.onCreating && props.onForm()}
+      {!!props.onEditing && props.onForm()}
     </div>,
     document.getElementById("modal")
   );

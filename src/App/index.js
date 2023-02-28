@@ -34,6 +34,13 @@ function App() {
     onCreating,
     saveTodos,
     todos,
+    onEditing,
+    setOnEditing,
+    setOnCreating,
+    todoClick,
+    editableTodo,
+    setEditableTodo,
+    editTodo,
   } = useTodos();
 
   return (
@@ -100,6 +107,9 @@ function App() {
                         >
                           <TodoComponent
                             todo={todo}
+                            setOpenModal={setOpenModal}
+                            setOnEditing={setOnEditing}
+                            todoClick={() => todoClick(todo)}
                             onToogleTodo={() => toogleTodo(todo.id)}
                             onDeleteTodo={() => deleteTodo(todo.id)}
                           />
@@ -118,9 +128,20 @@ function App() {
         <ModalComponent
           dataState={dataState}
           onCreating={onCreating}
+          onEditing={onEditing}
           onLoading={() => <LoadingComponent />}
           onForm={() => (
-            <FormComponent addTodo={addTodo} setOpenModal={setOpenModal} />
+            <FormComponent
+              addTodo={addTodo}
+              editableTodo={editableTodo}
+              setEditableTodo={setEditableTodo}
+              setOpenModal={setOpenModal}
+              onCreating={onCreating}
+              onEditing={onEditing}
+              setOnEditing={setOnEditing}
+              setOnCreating={setOnCreating}
+              editTodo={editTodo}
+            />
           )}
         />
       )}

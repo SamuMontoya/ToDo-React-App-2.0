@@ -4,6 +4,8 @@ import { useLocalStorage } from "./useLocalStorage";
 function useTodos() {
   const [openModal, setOpenModal] = React.useState(false);
   const [onCreating, setOnCreating] = React.useState(false);
+  const [onEditing, setOnEditing] = React.useState(false);
+  const [editableTodo, setEditableTodo] = React.useState({});
 
   const {
     item: todos,
@@ -42,8 +44,8 @@ function useTodos() {
   };
 
   const addTodo = (text) => {
-    const randomId = Date.now()
-    const newTodos = [{isChecked: false, text, id:randomId}, ...todos]
+    const randomId = Date.now();
+    const newTodos = [{ isChecked: false, text, id: randomId }, ...todos];
     setOnCreating(false);
     saveTodos(newTodos);
   };
@@ -64,6 +66,19 @@ function useTodos() {
     setOnCreating(true);
   };
 
+  const todoClick = (todo) => {
+    setOpenModal(true);
+    setOnEditing(true);
+    setEditableTodo(todo);
+  };
+
+  const editTodo = () => {
+    const editedTodos = [...todos];
+    const todoIndex = todos.findIndex((todo) => todo.id === editableTodo.id);
+    editedTodos[todoIndex] = editableTodo;
+    saveTodos(editedTodos);
+  };
+
   return {
     completedTodos,
     totalTodos,
@@ -81,7 +96,14 @@ function useTodos() {
     syncronizeTodos,
     onCreating,
     saveTodos,
-    todos
+    todos,
+    onEditing,
+    setOnEditing,
+    setOnCreating,
+    todoClick,
+    editableTodo,
+    setEditableTodo,
+    editTodo,
   };
 }
 

@@ -1,22 +1,37 @@
 import React from "react";
+import { ErrorComponent } from "../ErrorComponent";
 import "./FormComponent.css";
 
-function FormComponent({ setOpenModal, addTodo }) {
+function FormComponent(props) {
   const [newTodoValue, setNewTodoValue] = React.useState("");
   const onCancel = () => {
-    setOpenModal(false);
+    props.setOpenModal(false);
+    props.setOnCreating(false);
+    props.setOnEditing(false);
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    setOpenModal(false);
+    props.setOpenModal(false);
+    props.setOnCreating(false);
+    props.setOnEditing(false);
     if (newTodoValue !== "") {
-      addTodo(newTodoValue);
+      props.addTodo(newTodoValue);
+    } else if (!!props.onEditing) {
+      props.editTodo();
     } else {
       console.log("Empty");
     }
   };
   const onChange = (event) => {
-    setNewTodoValue(event.target.value);
+    const editableTodo = props.editableTodo;
+    if (props.onCreating) {
+      setNewTodoValue(event.target.value);
+    } else {
+      props.setEditableTodo((editableTodo) => ({
+        ...editableTodo,
+        text: event.target.value,
+      }));
+    }
   };
 
   const elementRef = React.useRef(null);
@@ -35,9 +50,13 @@ function FormComponent({ setOpenModal, addTodo }) {
 
   return (
     <form onSubmit={onSubmit} className="popup" ref={elementRef}>
-      <label>Create a new ToDo</label>
+      <label>
+        {!!props.onCreating && "Create a new "}
+        {!!props.onEditing && "Edit an existing "}
+        ToDo
+      </label>
       <textarea
-        value={newTodoValue}
+        value={props.onEditing ? props.editableTodo.text : newTodoValue}
         onChange={onChange}
         placeholder="Write your ToDo here..."
         onKeyDown={onKeyDown}
