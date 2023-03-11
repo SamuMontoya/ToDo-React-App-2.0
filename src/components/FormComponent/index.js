@@ -34,6 +34,17 @@ function FormComponent(props) {
     }
   };
 
+  const textAreaRef = React.useRef(null);
+  const onChangeNotes = (event) => {
+    props.setEditableTodo((editableTodo) => ({
+      ...editableTodo,
+      notes: event.target.value,
+    }));
+    const textarea = textAreaRef.current;
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + "px";
+  };
+
   const elementRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -55,13 +66,22 @@ function FormComponent(props) {
         {!!props.onEditing && "Edit an existing "}
         ToDo
       </label>
-      <textarea
+      <input
+        type="text"
         value={props.onEditing ? props.editableTodo.text : newTodoValue}
         onChange={onChange}
         placeholder="Write your ToDo here..."
         onKeyDown={onKeyDown}
         autoFocus
       />
+      {!!props.onEditing && (
+        <textarea
+          ref={textAreaRef}
+          placeholder="Notes,,,"
+          onChange={onChangeNotes}
+          value={!!props.onEditing && props.editableTodo.notes}
+        />
+      )}
       <div className="buttons-area">
         <button type="button" onClick={onCancel} className="btn">
           Cancel
